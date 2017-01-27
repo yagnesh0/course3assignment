@@ -20,6 +20,7 @@ featureNamesSplit <-strsplit(featureNames," “)`
 for(i in 1:length(featureNamesSplit)){
     featureNamesCol[i] <- featureNamesSplit[[i]][2]
 }
+
 activityNamesFactor <- character()
 for(j in 1:length(activityNamesSplit)){
     activityNamesFactor[j] <- activityNamesSplit[[j]][2]
