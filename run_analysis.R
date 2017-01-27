@@ -72,3 +72,5 @@ tidyDataTable2 <- dcast(meltedTidyDataTable, subjectID + activity ~ variable, me
 
 ## This new tidy dataTable gets exported to a text file in csv-style.
 write.table(tidyDataTable2,"tidyDataTable2toSubmit.txt",row.names = FALSE)
+
+tidyDataTable2
