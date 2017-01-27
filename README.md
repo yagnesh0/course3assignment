@@ -7,21 +7,20 @@
 ## Loading in “Activity Names” and “Feature Names”
 ####Activity names and feature names are acquired via txt files. Feature names will be used as headers for the measureables. 
 
-`<activityNames <- readLines("./UCI HAR Dataset/activity_labels.txt")
-featureNames <- readLines("./UCI HAR Dataset/features.txt”)>`
+`activityNames <- readLines("./UCI HAR Dataset/activity_labels.txt")
+featureNames <- readLines("./UCI HAR Dataset/features.txt”)`
 
 ## Splitting lists
 #### Both lists are then split from their numeric and corresponding descriptive name
-`<activityNamesSplit <-strsplit(activityNames," ")
-featureNamesSplit <-strsplit(featureNames," “)>`
+`activityNamesSplit <-strsplit(activityNames," ")
+featureNamesSplit <-strsplit(featureNames," “)`
 
 #### Each list's descriptive names are placed into another vector
 `<featureNamesCol <- character()
 for(i in 1:length(featureNamesSplit)){
     featureNamesCol[i] <- featureNamesSplit[[i]][2]
-}>`
-
-`<activityNamesFactor <- character()
+}
+activityNamesFactor <- character()
 for(j in 1:length(activityNamesSplit)){
     activityNamesFactor[j] <- activityNamesSplit[[j]][2]
-}>`
+}`
