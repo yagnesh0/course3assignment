@@ -28,6 +28,21 @@ for(j in 1:length(activityNamesSplit)){
 
 ##Loading Data Sets
 #### All training data is loaded.
-`subjectTrain <- read.table("./UCI HAR Dataset/train/subject_train.txt") #Train Subject ID
-xTrain <- read.table("./UCI HAR Dataset/train/X_train.txt") #Train Subject Data
-yTrain <- read.table("./UCI HAR Dataset/train/Y_train.txt") #Train Activity ID`
+`subjectTrain <- read.table("./UCI HAR Dataset/train/subject_train.txt”)` 
+`xTrain <- read.table("./UCI HAR Dataset/train/X_train.txt”)`
+`yTrain <- read.table("./UCI HAR Dataset/train/Y_train.txt”)`
+
+#### Training data gets combined in the order below to make a large train data table column-wise.
+`trainDataTable <- cbind(subjectTrain,yTrain,xTrain)`
+
+#### All testing data is loaded.
+`subjectTest <- read.table("./UCI HAR Dataset/test/subject_test.txt”)`
+`xTest <- read.table("./UCI HAR Dataset/test/X_test.txt”)`
+`yTest <- read.table("./UCI HAR Dataset/test/Y_test.txt”)`
+
+####Testing data gets combined in the order below to make a large train data table column-wise.
+`testDataTable <- cbind(subjectTest,yTest,xTest)`
+
+####The training and testing data sets gets merged into one data table
+`tidyDataTable <- rbind(trainDataTable,testDataTable)`
+
