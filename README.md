@@ -12,5 +12,16 @@ featureNames <- readLines("./UCI HAR Dataset/features.txt”)>`
 
 ## Splitting lists
 #### Both lists are then split from their numeric and corresponding descriptive name
-activityNamesSplit <-strsplit(activityNames," ")
-featureNamesSplit <-strsplit(featureNames," ")
+`<activityNamesSplit <-strsplit(activityNames," ")
+featureNamesSplit <-strsplit(featureNames," “)>`
+
+#### Each list's descriptive names are placed into another vector
+`<featureNamesCol <- character()
+for(i in 1:length(featureNamesSplit)){
+    featureNamesCol[i] <- featureNamesSplit[[i]][2]
+}
+
+activityNamesFactor <- character()
+for(j in 1:length(activityNamesSplit)){
+    activityNamesFactor[j] <- activityNamesSplit[[j]][2]
+}>`
