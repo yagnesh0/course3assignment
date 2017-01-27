@@ -9,3 +9,8 @@
 
 `<activityNames <- readLines("./UCI HAR Dataset/activity_labels.txt")
 featureNames <- readLines("./UCI HAR Dataset/features.txt”)>`
+
+## Splitting lists
+#### Both lists are then split from their numeric and corresponding descriptive name
+activityNamesSplit <-strsplit(activityNames," ")
+featureNamesSplit <-strsplit(featureNames," ")
