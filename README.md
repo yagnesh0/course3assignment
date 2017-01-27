@@ -25,3 +25,9 @@ for(i in 1:length(featureNamesSplit)){
 for(j in 1:length(activityNamesSplit)){
     activityNamesFactor[j] <- activityNamesSplit[[j]][2]
 }`
+
+##Loading Data Sets
+#### All training data is loaded.
+`subjectTrain <- read.table("./UCI HAR Dataset/train/subject_train.txt") #Train Subject ID
+xTrain <- read.table("./UCI HAR Dataset/train/X_train.txt") #Train Subject Data
+yTrain <- read.table("./UCI HAR Dataset/train/Y_train.txt") #Train Activity ID`
