@@ -1,0 +1,67 @@
+Code Book
+
+Defined Functions:
+None
+
+Variables:
+
+activityNames - character vector
+	Contains the lines of file activity_labels.txt that holds the mapping for activities.
+
+featureNames - character vector
+	Contains the lines of file featureNames.txt that holds the mapping for features which will later be used as headers for the table.
+
+activityNameSplit - list
+	Contains the split version of activityNames, separating the numeric from the descriptive pieces of the mapping.
+
+featureNameSplit - list
+	Contains the split version of featureNames, separating the numeric from the descriptive pieces of the mapping.
+
+featureNamesCol - character vector
+	Contains only the descriptive portion of the featureNameSplit, will be used later as headers of tidyDataFrame
+
+activityNamesFactor - character vector
+	Contains only the descriptive portion of the activityNameSplit, will be used later as the factor for tidyDataFrame
+
+subjectTrain - data.frame
+	Contains the subjectID data of subject_train.txt
+
+xTrain - data.frame
+	Contains the measurable data of X_train.txt
+
+yTrain - data.frame
+	Contains the activity data of Y_train.txt
+
+trainDataTable - data.frame
+	Is the column-wised combination of subjectTrain, xTrain, and yTrain
+
+subjectTest - data.frame
+	Contains the subjectID data of subject_test.txt
+
+xTest - data.frame
+	Contains the measurable data of X_test.txt
+
+yTest - data.frame
+	Contains the activity data of Y_test.txt
+
+testDataTable - data.frame
+	Is the column-wised combination of subjectTest, xTest, and yTest
+
+tidyDataTable - data.frame
+	The combination row-wise of trainDataTable and testDataTable. Gets altered later to only hold specified columns
+
+meanCols - integer vector
+	Holds the index values of the columns with header containing “mean()”
+
+stdCols - integer vector
+	Holds the index values of the columns with header containing “std()”
+
+keepCols - integer vector
+	Holds the index values of the columns to extract, a combination of the first 2 columns, meanCols and stdCols
+
+meltedTidyDataTable - data.frame
+	Melted down data table that uses subjectID and activity columns of tidyDataTable to create unique combinations to reorganize the data upon.
+
+tidyDataTable2 - data.frame
+	Reorganized meltedDataTable that recasts the rows as unique combinations of subjectID and activity and takes the average of each matching measurable column. Later gets exported to a .txt file.
+
