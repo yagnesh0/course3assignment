@@ -61,3 +61,14 @@ for(j in 1:length(activityNamesSplit)){
 ####Only those required columns are now stored (subjectID, activity, means, and stds)
 `tidyDataTable<-tidyDataTable[,keepCols]`
 
+
+##Creating second tidyDataTable
+####The tidyDataTable gets melted by id pairs of subjectID and activity
+`meltedTidyDataTable <- melt(tidyDataTable,id=c("subjectID","activity”))`
+
+####The melted tidyDataTable gets reorganized by averaging each of the measureables over unique pairs of subjectID and activity
+`tidyDataTable2 <- dcast(meltedTidyDataTable, subjectID + activity ~ variable, mean)`
+
+####This new tidy dataTable gets exported to a text file in csv-style.
+`write.table(tidyDataTable2,"tidyDataTable2toSubmit.txt",row.names = FALSE)`
+
