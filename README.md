@@ -16,7 +16,7 @@ featureNames <- readLines("./UCI HAR Dataset/features.txt”)`
 featureNamesSplit <-strsplit(featureNames," “)`
 
 #### Each list's descriptive names are placed into another vector
-`<featureNamesCol <- character()
+`featureNamesCol <- character()
 for(i in 1:length(featureNamesSplit)){
     featureNamesCol[i] <- featureNamesSplit[[i]][2]
 }`
@@ -45,4 +45,19 @@ for(j in 1:length(activityNamesSplit)){
 
 ####The training and testing data sets gets merged into one data table
 `tidyDataTable <- rbind(trainDataTable,testDataTable)`
+
+##Organizing tidyData
+####Headers are added to the merged data table
+`names(tidyDataTable) <- c("subjectID","activity",featureNamesCol)`
+
+####Column 'activity' gets mapped to its descriptive names and serves as a factor
+`tidyDataTable$activity <- factor(x = tidyDataTable$activity, levels = c(1,2,3,4,5,6), labels = activityNamesFactor)`
+
+####The columns with the subjectID, activity, means, and std are located added into a vector
+`meanCols <- grep("mean\\(\\)",names(tidyDataTable))`
+`stdCols <- grep("std\\(\\)",names(tidyDataTable))`
+`keepCols <-c(1,2,meanCols,stdCols)`
+
+####Only those required columns are now stored (subjectID, activity, means, and stds)
+`tidyDataTable<-tidyDataTable[,keepCols]`
 
